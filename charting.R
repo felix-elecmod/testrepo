@@ -2,7 +2,7 @@
 ## PURPOSE: R code to generate spatial charts on fti data
 ## NOTES: Requires FTI dataset with project region (Landkreis), jobs created
 ## and project id
-## Code can be adapted for anz German region
+## Code can be adapted for any German region
 ## version: Schleswig-Holstein v0.1
 ################################################################################
 # Packages
@@ -77,7 +77,7 @@ ggplot() +
                   size=3.5,color="#151E29",fontface="bold")+
   theme_void(base_family = "Arial")+labs(size="Projektanzahl")+
   theme(legend.title=element_text(face="bold",color="#333F50"))
-ggsave(filename = "projects_map.jpg",dpi=600)
+ggsave(filename = "projects_map.jpg",dpi=600,scale=2)
 
 
 # Create chart for number of jobs created
@@ -91,8 +91,8 @@ ggplot() +
   geom_text_repel(data=coords2 %>% filter(!is.na(jobs_created)),
                   aes(x=long,y=lat,label=paste0(region,", ",jobs_created)),
                   size=3.5,color="#151E29",fontface="bold")+
-  theme_void()+labs(size="Geschaffene \n Arbeitsplätze")+
+  theme_void()+labs(size="Geschaffene \n Arbeitspl?tze")+
   theme(legend.title=element_text(face="bold",color="#333F50"))
-ggsave(filename = "jobs_map.jpg",dpi=600)
+ggsave(filename = "jobs_map.jpg",dpi=600,scale=2)
 
     
